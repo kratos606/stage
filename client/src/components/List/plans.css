@@ -1,0 +1,39 @@
+.table-header {
+    background-color: #3CB371;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.2em;
+    padding: 10px;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #9f9f9f;
+    border-radius: 20px;
+    border: 1px solid rgb(83, 83, 83);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #2C343A;
+    border: 1px white solid;
+    border-radius: 20px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(78, 78, 78)
+}
+
+.table-action svg {
+    margin: 1rem;
+}
+
+.table-action svg:hover {
+    cursor: pointer;
+    color: #3CB371;
+}
