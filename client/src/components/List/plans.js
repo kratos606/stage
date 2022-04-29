@@ -21,6 +21,7 @@ function Plans(props) {
   const handleAction = async(action,plan) => {
     if(action === 'delete'){
       await axios.delete(`http://localhost:5000/plan/${plan._id}`).then(()=>{
+        window.localStorage.setItem('success',res.data.success);
         navigate(0);
       })
     }
