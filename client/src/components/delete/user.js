@@ -10,6 +10,7 @@ function Delete(props) {
     };
     const handleDelete = async(id) => {
         await axios.delete(`http://localhost:5000/user/${id}`).then(res => {
+            window.localStorage.setItem('success',res.data.success);
             props.setOpen(false);
             navigate(0);
         })
