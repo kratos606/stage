@@ -47,7 +47,7 @@ function Users(props) {
   }
   return (
     <div style={props.style}>
-      <div style={{width:'100%',display: 'flex',flexDirection: 'column'}}>
+      <div style={{width:'100%',display: 'flex',flexDirection: 'column',justifyItems:'center'}}>
         <Search setFiltredData={setFiltredData} data={data} setSearch={setSearch} />
         <Create />
       </div>
