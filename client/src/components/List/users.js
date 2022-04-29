@@ -47,9 +47,9 @@ function Users(props) {
   }
   return (
     <div style={props.style}>
-      <div style={{width:'100%',display: 'flex',flexDirection: 'row',justifyItems:'space-between'}}>
-        <Search setFiltredData={setFiltredData} data={data} setSearch={setSearch} style={{width:'90%'}}/>
-        <Create style={{marginTop: '15px',width:'10%'}}/>
+      <div style={{width:'100%',display: 'flex',flexDirection: 'column'}}>
+        <Search setFiltredData={setFiltredData} data={data} setSearch={setSearch} />
+        <Create />
       </div>
       <div style={{ display: 'flex' }}>
           <DataGrid
