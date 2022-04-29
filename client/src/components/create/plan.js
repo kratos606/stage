@@ -1,10 +1,11 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import {Alert,TextField,Button,Dialog,DialogTitle,DialogActions,DialogContent} from '@mui/material'
 import {useNavigate} from 'react-router-dom'
 import axios from 'axios'
 
 function Plan(props) {
-  const [selected,setSelected]=useState({})
+    const [selected,setSelected]=useState({})
+    const [success,setSuccess] = useState(false);
     const [error,setError]=useState(null)
     const [open,setOpen]=useState(false)
     const navigate = useNavigate();
@@ -26,6 +27,11 @@ function Plan(props) {
             setError(err.message);
         });
     }
+    useEffect(() => {
+      if(window.localStorage.getItem('success')) {
+        setSuccess(true);
+      }
+    },[])
   return (
     <div style={props.style}>
         <Button variant="contained" onClick={create} sx={{color:'white',height:'60px',width:'100%'}}>Create</Button>
@@ -103,6 +109,11 @@ function Plan(props) {
             <Button onClick={handleClose}>Close</Button>
         </DialogActions>
         </Dialog>
+        <Snackbar  anchorOrigin={{vertical: 'bottom', horizontal: 'right'}} open={success} autoHideDuration={6000} onClose={()=>{setSuccess(false);window.localStorage.clear()}}>
+          <Alert onClose={()=>{setSuccess(false);window.localStorage.clear()}} variant="filled" severity="success" sx={{ width: '100%' }}>
+            {window.localStorage.getItem('success')}
+          </Alert>
+        </Snackbar>
     </div>
   )
 }
