@@ -17,6 +17,7 @@ function UpdateUser(props) {
           setError(res.data.error)
         }
         else {
+          window.localStorage.setItem('success',res.data.success);
           props.setOpen(false);
           navigate(0);
         }
