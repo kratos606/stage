@@ -20,7 +20,7 @@ function Plans(props) {
   const navigate = useNavigate();
   const handleAction = async(action,plan) => {
     if(action === 'delete'){
-      await axios.delete(`http://localhost:5000/plan/${plan._id}`).then(()=>{
+      await axios.delete(`http://localhost:5000/plan/${plan._id}`).then(res=>{
         window.localStorage.setItem('success',res.data.success);
         navigate(0);
       })
@@ -62,7 +62,7 @@ function Plans(props) {
             { field : "tournée_debut",headerName:'tournée debut',flex: 1,minWidth:150,headerClassName:'table-header'},
             { field : "tournée_fin",headerName:'tournée fin',flex: 1,minWidth:150,headerClassName:'table-header'},
             {
-              field: "action",headerName: "Action",flex: 1,minWidth:150,headerClassName:'table-header',sortable: false,filterable: false,hideable: false,
+              field: "action",flex: 1,minWidth:150,headerClassName:'table-header',sortable: false,filterable: false,hideable: false,
               renderCell: (params) => {
                 const handleClick = (action) => {
                   handleAction(action,params.row);

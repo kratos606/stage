@@ -11,4 +11,9 @@ const getAllHistories = async (req, res) => {
     }
 }
 
-module.exports = {getAllHistories}
+// delete user history
+
+const deleteUserHistory = async(id) => {
+    await History.find({user: id}).deleteMany();
+}
+module.exports = {getAllHistories,deleteUserHistory}

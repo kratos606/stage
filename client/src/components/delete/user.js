@@ -26,10 +26,10 @@ function Delete(props) {
         {"Are you sure you want to delete this user ?"}
       </DialogTitle>
       <DialogActions>
-        <Button onClick={handleClose}>Disagree</Button>
         <Button onClick={() => {handleDelete(props.id)}} autoFocus>
           Agree
         </Button>
+        <Button onClick={handleClose}>Disagree</Button>
       </DialogActions>
     </Dialog>
   )

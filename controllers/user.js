@@ -1,5 +1,6 @@
 const User = require('../models/users');
 const Joi = require('@hapi/joi');
+const {deleteUserHistory} = require('../controllers/history')
 
 // create Validation
 
@@ -69,8 +70,9 @@ const updateUser = async(req, res) => {
 
 const deleteUser = async (req, res) => {
     try {
+        deleteUserHistory(req.params.id);
         const deletedUser = await User.findByIdAndDelete(req.params.id);
-        res.status(200).json(deletedUser);
+        res.status(200).json({success: "User deleted successfully"});
     }
     catch(err)
     {

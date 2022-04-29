@@ -8,7 +8,7 @@ const createPlan = async (req, res) => {
     const plan = new Plan({ code_RLP, ordre_jour, ordre_lecture_paquet, tournée_debut, tournée_fin });
     await plan.save()
         .then(async() => {
-		res.json({ success: true })
+		res.json({ success: 'Plans created successfully!' })
 		const history = new History({
         		user: req.user.id,
         		action: 'Create',
@@ -31,7 +31,7 @@ const deletePlan = async (req, res) => {
     await Plan.findById(req.params.id)
         .then(async(plan) => {
             let currentPlan = plan
-            plan.remove().then(() => res.json({ success: true }))
+            plan.remove().then(() => res.json({ success: 'Plan deleted successfully!' }))
             const history = new History({
                 user: req.user.id,
                 action: 'Delete',
@@ -55,9 +55,9 @@ const updatePlan = async (req, res) => {
             plan.tournée_debut = tournée_debut;
             plan.tournée_fin = tournée_fin;
             let currentPlan = plan;
-            await plan.save()
+            await plan.save({ validateModifiedOnly: true })
                 .then(() => {
-                    res.json({ success: true })
+                    res.json({ success: 'Plan updated successfully!' })
                     if(JSON.stringify(prevPlan) !== JSON.stringify(currentPlan)){
                         const history = new History({
                             user: req.user.id,

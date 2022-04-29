@@ -1,7 +1,8 @@
 import React from 'react'
-import { PeopleAltOutlined,LogoutOutlined } from '@mui/icons-material';
+import { LogoutOutlined } from '@mui/icons-material';
 import { Button,Box, Drawer,List,ListItem,ListItemIcon, ListItemText, Typography } from '@mui/material'
 import HistoryIcon from '@mui/icons-material/History';
+import MapIcon from '@mui/icons-material/Map';
 import { Link } from "react-router-dom";
 import axios from 'axios';
 
@@ -46,8 +47,8 @@ function SidebarAdmin() {
         </Box>
         <List sx={{width: '100%'}}>
             <Link style={{all:'unset'}} to="/"><ListItem button>
-              <ListItemIcon><PeopleAltOutlined sx={{color:'#3CB371'}}/></ListItemIcon>
-              <ListItemText primary={"Users"} />
+              <ListItemIcon><MapIcon sx={{color:'#3CB371'}}/></ListItemIcon>
+              <ListItemText primary={"Plans"} />
             </ListItem></Link>
             <Link style={{all:'unset'}} to="/history-user"><ListItem button>
               <ListItemIcon><HistoryIcon sx={{color:'#3CB371'}}/></ListItemIcon>

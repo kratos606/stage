@@ -35,7 +35,7 @@ function Create(props) {
   },[])
     return (
         <div style={props.style}>
-        <Button variant="contained" onClick={create} sx={{color:'white',height:'60px',width:'100%'}}>Create</Button>
+        <Button variant="contained" onClick={create} sx={{color:'white',height:'60px',width:'100%',marginBlock:'1rem'}}>Create</Button>
         <Dialog
           open={open}
           onClose={handleClose}

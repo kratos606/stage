@@ -35,7 +35,7 @@ function Plan(props) {
             {'Update Plan'}
         </DialogTitle>
         <DialogContent>
-        {error && <Alert severity="error">{error[0] || error}</Alert>}
+        {error && <Alert severity="error">{error}</Alert>}
         <TextField
           autoFocus
           margin="dense"
@@ -51,7 +51,7 @@ function Plan(props) {
           autoFocus
           margin="dense"
           id="name"
-          label="ordre_jour"
+          label="ordre jour"
           type="text"
           fullWidth
           value={selected && selected.ordre_jour}
@@ -62,7 +62,7 @@ function Plan(props) {
           autoFocus
           margin="dense"
           id="name"
-          label="ordre_lecture_paquet"
+          label="ordre lecture paquet"
           type="text"
           fullWidth
           value={selected && selected.ordre_lecture_paquet}
@@ -73,7 +73,7 @@ function Plan(props) {
           autoFocus
           margin="dense"
           id="name"
-          label="tournee_debut"
+          label="tournee debut"
           type="text"
           fullWidth
           value={selected && selected.tournée_debut}
@@ -84,7 +84,7 @@ function Plan(props) {
           autoFocus
           margin="dense"
           id="name"
-          label="tournee_fin"
+          label="tournee fin"
           type="text"
           fullWidth
           value={selected && selected.tournée_fin}

@@ -58,7 +58,7 @@ function Users(props) {
               { field : "_id",headerName: 'id',flex: 1,minWidth:250,headerClassName:'table-header'},
               { field: 'username',flex: 1,minWidth:150,headerClassName:'table-header'},
               { field : "email",flex: 1,minWidth:200,headerClassName:'table-header'},
-              { field : "isAdmin",flex: 1,minWidth:150,headerClassName:'table-header',
+              { field : "isAdmin",headerName:'admin',flex: 1,minWidth:150,headerClassName:'table-header',
                 renderCell: (params) => {
                   return (
                     <div>
@@ -68,7 +68,7 @@ function Users(props) {
                 }
               },
               {
-                field: "action",headerName: "Action",flex: 1,minWidth:150,headerClassName:'table-header',sortable: false,filterable: false,hideable: false,
+                field: "action",flex: 1,minWidth:150,headerClassName:'table-header',sortable: false,filterable: false,hideable: false,
                 renderCell: (params) => {
                   const handleClick = (action) => {
                     handleAction(action,params.row);
