@@ -1,11 +1,12 @@
 import React,{useState} from 'react'
 import axios from 'axios';
-import {Alert,Dialog,DialogTitle,DialogActions,DialogContent,TextField,FormLabel,RadioGroup,Radio,FormControlLabel,FormControl,Button} from '@mui/material'
+import {Alert,Dialog,DialogTitle,DialogActions,DialogContent,TextField,FormLabel,RadioGroup,Radio,FormControlLabel,FormControl,Button,Snackbar} from '@mui/material'
 import {useNavigate} from 'react-router-dom'
 import { Check,Close } from '@mui/icons-material';
 
 function Create(props) {
   const [error,setError] = useState(null);
+  const [success,setSuccess] = useState(false);
   const [selected,setSelected] = useState({})
   const [open, setOpen] = React.useState(false);
   const navigate = useNavigate();
@@ -21,11 +22,17 @@ function Create(props) {
             setError(res.data.error)
         }
         else {
+          window.localStorage.setItem('success',res.data.success);
           setOpen(false);
           navigate(0);
         }
     })
   }
+  useEffect(() => {
+    if(window.localStorage.getItem('success')) {
+      setSuccess(true);
+    }
+  },[])
     return (
         <div style={props.style}>
         <Button variant="contained" onClick={create} sx={{color:'white',height:'60px',width:'100%'}}>Create</Button>
@@ -94,6 +101,11 @@ function Create(props) {
             <Button onClick={handleClose}>Close</Button>
           </DialogActions>
         </Dialog>
+        <Snackbar  anchorOrigin={{vertical: 'bottom', horizontal: 'right'}} open={success} autoHideDuration={6000} onClose={()=>{setSuccess(false);window.localStorage.clear()}}>
+          <Alert onClose={()=>{setSuccess(false);window.localStorage.clear()}} variant="filled" severity="success" sx={{ width: '100%' }}>
+            {window.localStorage.getItem('success')}
+          </Alert>
+        </Snackbar>
         </div>
     )
 }
